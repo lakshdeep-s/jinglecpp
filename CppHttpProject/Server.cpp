@@ -1,6 +1,8 @@
 #include "HttpServer.h"
 #include "Response.h"
 #include <iostream>
+#include "nlohmann/json.hpp"
+
 using namespace Server;
 
 int main(void) {
@@ -9,8 +11,11 @@ int main(void) {
 		HttpServer server(8080);
 
 		server.get("/health", [](const std::string& request, Response& response) {
-			response.status(200);
-			});
+			nlohmann::json jsonResponse = "{\"status\":true, \"message\":\"Server is up and running\"}"_json;
+			response.status(200).json(jsonResponse);
+		});
+
+		
 
 		server.startServer();
 	}
