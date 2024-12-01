@@ -62,10 +62,12 @@ namespace Server
 			int bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
 			if (bytesRead > 0) {
 				std::string request(buffer, bytesRead);
-				std::string response;
-				int responseSize = static_cast<int>(response.size());
+				Response responseObject;
 
-				processRequest(request, response);
+				processRequest(request, responseObject);
+				std::string response = responseObject.getResponse();
+
+				int responseSize = response.size();
 
 				send(clientSocket, response.c_str(), responseSize, 0);
 			}
@@ -73,7 +75,7 @@ namespace Server
 		}
 	}
 
-	void HttpServer::processRequest(const std::string& request, std::string& response) const {
+	void HttpServer::processRequest(const std::string& request, Response& response) const {
 		std::string method, path;
 		std::istringstream requestStream(request);
 		requestStream >> method >> path;
@@ -82,11 +84,12 @@ namespace Server
 			getRoutes.at(path)(request, response);
 		}
 		else {
-			response = "HTTP/1.1 404 Not Found\r\n\r\n";
+			Response response = Response();
+			response.status(404);
 		}
 	}
 
-	void HttpServer::get(const std::string& route, const std::function<void(const std::string&, std::string&)> handler) {
+	void HttpServer::get(const std::string& route, const std::function<void(const std::string&, Response&)> handler) {
 		getRoutes[route] = handler;
 	}
 }

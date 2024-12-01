@@ -1,4 +1,5 @@
 #include "HttpServer.h"
+#include "Response.h"
 #include <iostream>
 using namespace Server;
 
@@ -7,8 +8,8 @@ int main(void) {
 	{
 		HttpServer server(8080);
 
-		server.get("/health", [](const std::string& request, std::string& response) {
-			response = "HTTP/1.1 200 OK\r\nContent-Length: 13\r\n\r\nHealthy";
+		server.get("/health", [](const std::string& request, Response& response) {
+			response.status(200);
 			});
 
 		server.startServer();

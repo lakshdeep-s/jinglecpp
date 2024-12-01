@@ -137,6 +137,7 @@
   <ItemGroup>
     <ClInclude Include="HttpServer.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="Response.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HttpServer.cpp" />
@@ -150,6 +151,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">pch.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="Response.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
