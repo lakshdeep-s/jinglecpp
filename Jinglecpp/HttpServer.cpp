@@ -11,6 +11,7 @@ namespace Server
 		if (wsResult != 0) {
 			throw std::runtime_error("WSAStartup Failed with error: " + std::to_string(wsResult));
 		}
+		initServerSocket();
 	}
 
 	// Destructor, WSA Cleanup
@@ -38,5 +39,54 @@ namespace Server
 			throw std::runtime_error("Error in binding server socket: " + std::to_string(WSAGetLastError()));
 
 		std::cout << "Server socket initialized and bound successfully.\n";
+	}
+
+	void HttpServer::startServer() const{
+		int listenResult = listen(serverSocket, SOMAXCONN);
+		if (listenResult == SOCKET_ERROR) {
+			throw std::runtime_error("Error listening on server socket: " + std::to_string(WSAGetLastError()) + "\n");
+		}
+		std::cout << "Server listening on port " << serverPort << "\n";
+
+		SOCKADDR_IN clientAddr{};
+		int clientAddrSize = sizeof(clientAddr);
+
+		while (true) {
+			SOCKET clientSocket = accept(serverSocket, (SOCKADDR*)&clientAddr, &clientAddrSize);
+			if (clientSocket == INVALID_SOCKET) {
+				throw std::runtime_error("Error in creating client socket: " + std::to_string(WSAGetLastError()));
+			}
+			std::cout << "Client Connected\n";
+
+			char buffer[1024];
+			int bytesRead = recv(clientSocket, buffer, sizeof(buffer), 0);
+			if (bytesRead > 0) {
+				std::string request(buffer, bytesRead);
+				std::string response;
+				int responseSize = static_cast<int>(response.size());
+
+				processRequest(request, response);
+
+				send(clientSocket, response.c_str(), responseSize, 0);
+			}
+			closesocket(clientSocket);
+		}
+	}
+
+	void HttpServer::processRequest(const std::string& request, std::string& response) const {
+		std::string method, path;
+		std::istringstream requestStream(request);
+		requestStream >> method >> path;
+
+		if (method == "GET" && getRoutes.find(path) != getRoutes.end()) {
+			getRoutes.at(path)(request, response);
+		}
+		else {
+			response = "HTTP/1.1 404 Not Found\r\n\r\n";
+		}
+	}
+
+	void HttpServer::get(const std::string& route, const std::function<void(const std::string&, std::string&)> handler) {
+		getRoutes[route] = handler;
 	}
 }
