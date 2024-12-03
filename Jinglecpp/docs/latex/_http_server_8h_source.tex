@@ -1,0 +1,31 @@
+\doxysection{Http\+Server.\+h}
+\hypertarget{_http_server_8h_source}{}\label{_http_server_8h_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}pch.h"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}Response.h"{}}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{namespace\ }Server\ }
+\DoxyCodeLine{00006\ \{}
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_server_1_1_http_server}{HttpServer}}}
+\DoxyCodeLine{00008\ \ \ \ \ \{}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00010\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ serverPort;}
+\DoxyCodeLine{00011\ \ \ \ \ \ \ \ \ SOCKET\ serverSocket;}
+\DoxyCodeLine{00012\ \ \ \ \ \ \ \ \ std::unordered\_map<std::string,\ std::function<void(\textcolor{keyword}{const}\ std::string\&,\ \mbox{\hyperlink{class_response}{Response}}\&\ response)>>\ getRoutes;}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ initServerSocket();}
+\DoxyCodeLine{00015\ }
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ processRequest(\textcolor{keyword}{const}\ std::string\&\ request,\ \mbox{\hyperlink{class_response}{Response}}\&\ response)\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00017\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{explicit}\ \mbox{\hyperlink{class_server_1_1_http_server}{HttpServer}}(\textcolor{keywordtype}{int}\ port);}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ startServer()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{void}\ get(\textcolor{keyword}{const}\ std::string\&\ route,\ std::function<\textcolor{keywordtype}{void}(\textcolor{keyword}{const}\ std::string\&,\ \mbox{\hyperlink{class_response}{Response}}\&\ response)>\ handler);}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_server_1_1_http_server}{\string~HttpServer}}();}
+\DoxyCodeLine{00024\ \ \ \ \ \};}
+\DoxyCodeLine{00025\ \}}
+\DoxyCodeLine{00026\ }
+
+\end{DoxyCode}

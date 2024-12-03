@@ -139,6 +139,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="docs\doc_main.h" />
     <ClInclude Include="HttpServer.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Response.h" />
