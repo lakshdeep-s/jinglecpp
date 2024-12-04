@@ -1,29 +1,220 @@
 \doxysection{Response Class Reference}
 \hypertarget{class_response}{}\label{class_response}\index{Response@{Response}}
+
+
+\doxylink{class_response}{Response} class for handling HTTP responses.  
+
+
+
+
+{\ttfamily \#include $<$Response.\+h$>$}
+
 \doxysubsubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\Hypertarget{class_response_afa73d70e3c2958e08acc050f0cbf1fbb}\label{class_response_afa73d70e3c2958e08acc050f0cbf1fbb} 
-{\bfseries Response} (const std\+::string \&version="{}1.\+1"{})
-\item 
-\Hypertarget{class_response_ab0d1d924a23ee6daaf5e58819a543d2f}\label{class_response_ab0d1d924a23ee6daaf5e58819a543d2f} 
-\mbox{\hyperlink{class_response}{Response}} \& {\bfseries status} (unsigned short status\+Code)
-\item 
-\Hypertarget{class_response_a49b93293f03032ed8062903635390cad}\label{class_response_a49b93293f03032ed8062903635390cad} 
-\mbox{\hyperlink{class_response}{Response}} \& {\bfseries set} (const std\+::string \&key, const std\+::string \&value)
-\item 
-\Hypertarget{class_response_a3da69aa1fedb5a1e93574198e3f730a6}\label{class_response_a3da69aa1fedb5a1e93574198e3f730a6} 
-\mbox{\hyperlink{class_response}{Response}} \& {\bfseries json} (nlohmann\+::json \&json\+Object)
-\item 
-\Hypertarget{class_response_a1869fd3cc5291b730b550062a7295f66}\label{class_response_a1869fd3cc5291b730b550062a7295f66} 
-const std\+::string {\bfseries get\+Response} () const
-\item 
-\Hypertarget{class_response_a84936ed0ab7a96c289a60f429c61f82a}\label{class_response_a84936ed0ab7a96c289a60f429c61f82a} 
-std\+::string {\bfseries get\+Current\+Date} () const
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{class_response_afa73d70e3c2958e08acc050f0cbf1fbb}{Response}} (const std\+::string \&version="{}1.\+1"{})
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_response}{Response} class. \end{DoxyCompactList}\item 
+\Hypertarget{class_response_a2a4a6403aaefce73725f17cf63896f84}\label{class_response_a2a4a6403aaefce73725f17cf63896f84} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Response} ()
+\begin{DoxyCompactList}\small\item\em Destructor for \doxylink{class_response}{Response} class. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_ab0d1d924a23ee6daaf5e58819a543d2f}{status}} (unsigned short status\+Code)
+\begin{DoxyCompactList}\small\item\em Sets the HTTP status code and status text. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_a81d8c357d33ddf20d450bc06bea48cb5}{set\+Header}} (const std\+::string \&key, const std\+::string \&value)
+\begin{DoxyCompactList}\small\item\em Sets a custom header. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_a4a9e1820749cb557e426f16ab36bd7b9}{set\+Headers}} (const std\+::map$<$ std\+::string \&, std\+::string $>$ \&custom\+Headers)
+\begin{DoxyCompactList}\small\item\em Sets multiple custom headers. \end{DoxyCompactList}\item 
+std\+::map$<$ std\+::string, std\+::string $>$ \mbox{\hyperlink{class_response_add8074792569f1df669b12ef23adb3a8}{get\+Headers}} () const
+\begin{DoxyCompactList}\small\item\em Gets all headers. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_aed074dad881f7eee4d6bc7e11b7b0954}{send}} (const std\+::string \&data, const std\+::string \&content\+Type="{}text/plain"{})
+\begin{DoxyCompactList}\small\item\em Sends a response with the given data and content type. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_a63d0a644a2099e6292ee7112130079fb}{send\+File}} (const std\+::string \&file\+Path)
+\begin{DoxyCompactList}\small\item\em Sends a file as response. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_response}{Response}} \& \mbox{\hyperlink{class_response_a3da69aa1fedb5a1e93574198e3f730a6}{json}} (nlohmann\+::json \&json\+Object)
+\begin{DoxyCompactList}\small\item\em Sends a JSON response. \end{DoxyCompactList}\item 
+const std\+::string \mbox{\hyperlink{class_response_a1869fd3cc5291b730b550062a7295f66}{get\+Response}} () const
+\begin{DoxyCompactList}\small\item\em Gets the response as a string. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{class_response_a84936ed0ab7a96c289a60f429c61f82a}{get\+Current\+Date}} () const
+\begin{DoxyCompactList}\small\item\em Gets the current date. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_response}{Response} class for handling HTTP responses. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_response_afa73d70e3c2958e08acc050f0cbf1fbb}\index{Response@{Response}!Response@{Response}}
+\index{Response@{Response}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{Response()}{Response()}}
+{\footnotesize\ttfamily \label{class_response_afa73d70e3c2958e08acc050f0cbf1fbb} 
+Response\+::\+Response (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{version}{ = {\ttfamily "{}1.1"{}}}\end{DoxyParamCaption})}
+
+
+
+Constructor for \doxylink{class_response}{Response} class. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em version} & HTTP version (default\+: "{}1.\+1"{}) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_response_a84936ed0ab7a96c289a60f429c61f82a}\index{Response@{Response}!getCurrentDate@{getCurrentDate}}
+\index{getCurrentDate@{getCurrentDate}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{getCurrentDate()}{getCurrentDate()}}
+{\footnotesize\ttfamily \label{class_response_a84936ed0ab7a96c289a60f429c61f82a} 
+std\+::string Response\+::get\+Current\+Date (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the current date. 
+
+\begin{DoxyReturn}{Returns}
+Current date string 
+\end{DoxyReturn}
+\Hypertarget{class_response_add8074792569f1df669b12ef23adb3a8}\index{Response@{Response}!getHeaders@{getHeaders}}
+\index{getHeaders@{getHeaders}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{getHeaders()}{getHeaders()}}
+{\footnotesize\ttfamily \label{class_response_add8074792569f1df669b12ef23adb3a8} 
+std\+::map$<$ std\+::string, std\+::string $>$ Response\+::get\+Headers (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets all headers. 
+
+\begin{DoxyReturn}{Returns}
+Map of headers 
+\end{DoxyReturn}
+\Hypertarget{class_response_a1869fd3cc5291b730b550062a7295f66}\index{Response@{Response}!getResponse@{getResponse}}
+\index{getResponse@{getResponse}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{getResponse()}{getResponse()}}
+{\footnotesize\ttfamily \label{class_response_a1869fd3cc5291b730b550062a7295f66} 
+const std\+::string Response\+::get\+Response (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption}) const}
+
+
+
+Gets the response as a string. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_response}{Response} string 
+\end{DoxyReturn}
+\Hypertarget{class_response_a3da69aa1fedb5a1e93574198e3f730a6}\index{Response@{Response}!json@{json}}
+\index{json@{json}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{json()}{json()}}
+{\footnotesize\ttfamily \label{class_response_a3da69aa1fedb5a1e93574198e3f730a6} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::json (\begin{DoxyParamCaption}\item[{nlohmann\+::json \&}]{json\+Object}{}\end{DoxyParamCaption})}
+
+
+
+Sends a JSON response. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em json\+Object} & JSON object to be sent \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object 
+\end{DoxyReturn}
+\Hypertarget{class_response_aed074dad881f7eee4d6bc7e11b7b0954}\index{Response@{Response}!send@{send}}
+\index{send@{send}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{send()}{send()}}
+{\footnotesize\ttfamily \label{class_response_aed074dad881f7eee4d6bc7e11b7b0954} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::send (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data}{, }\item[{const std\+::string \&}]{content\+Type}{ = {\ttfamily "{}text/plain"{}}}\end{DoxyParamCaption})}
+
+
+
+Sends a response with the given data and content type. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & \doxylink{class_response}{Response} data \\
+\hline
+{\em content\+Type} & Content type of the response \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object 
+\end{DoxyReturn}
+\Hypertarget{class_response_a63d0a644a2099e6292ee7112130079fb}\index{Response@{Response}!sendFile@{sendFile}}
+\index{sendFile@{sendFile}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{sendFile()}{sendFile()}}
+{\footnotesize\ttfamily \label{class_response_a63d0a644a2099e6292ee7112130079fb} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::send\+File (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{file\+Path}{}\end{DoxyParamCaption})}
+
+
+
+Sends a file as response. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+Path} & Path to the file \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]add enumerations for better support \end{DoxyRefDesc}
+\Hypertarget{class_response_a81d8c357d33ddf20d450bc06bea48cb5}\index{Response@{Response}!setHeader@{setHeader}}
+\index{setHeader@{setHeader}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{setHeader()}{setHeader()}}
+{\footnotesize\ttfamily \label{class_response_a81d8c357d33ddf20d450bc06bea48cb5} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::set\+Header (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{key}{, }\item[{const std\+::string \&}]{value}{}\end{DoxyParamCaption})}
+
+
+
+Sets a custom header. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Header key \\
+\hline
+{\em value} & Header value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object 
+\end{DoxyReturn}
+\Hypertarget{class_response_a4a9e1820749cb557e426f16ab36bd7b9}\index{Response@{Response}!setHeaders@{setHeaders}}
+\index{setHeaders@{setHeaders}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{setHeaders()}{setHeaders()}}
+{\footnotesize\ttfamily \label{class_response_a4a9e1820749cb557e426f16ab36bd7b9} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::set\+Headers (\begin{DoxyParamCaption}\item[{const std\+::map$<$ std\+::string \&, std\+::string $>$ \&}]{custom\+Headers}{}\end{DoxyParamCaption})}
+
+
+
+Sets multiple custom headers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em custom\+Headers} & Map of custom headers \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object 
+\end{DoxyReturn}
+\Hypertarget{class_response_ab0d1d924a23ee6daaf5e58819a543d2f}\index{Response@{Response}!status@{status}}
+\index{status@{status}!Response@{Response}}
+\doxysubsubsection{\texorpdfstring{status()}{status()}}
+{\footnotesize\ttfamily \label{class_response_ab0d1d924a23ee6daaf5e58819a543d2f} 
+\mbox{\hyperlink{class_response}{Response}} \& Response\+::status (\begin{DoxyParamCaption}\item[{unsigned short}]{status\+Code}{}\end{DoxyParamCaption})}
+
+
+
+Sets the HTTP status code and status text. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em status\+Code} & HTTP status code \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Reference to the \doxylink{class_response}{Response} object 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 
-Response.\+h\item 
+\mbox{\hyperlink{_response_8h}{Response.\+h}}\item 
 Response.\+cpp\end{DoxyCompactItemize}

@@ -78,7 +78,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Laksh\Documents\Libraries\modernjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Jinglecpp\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -95,7 +95,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Laksh\Documents\Libraries\modernjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Jinglecpp\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -112,7 +112,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Laksh\Documents\Libraries\modernjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Jinglecpp\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -129,7 +129,7 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\Users\Laksh\Documents\Libraries\modernjson</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)Jinglecpp\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -139,6 +139,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\..\Documents\Libraries\modernjson\nlohmann\json.hpp" />
+    <ClInclude Include="..\..\..\..\Documents\Libraries\modernjson\nlohmann\json_fwd.hpp" />
     <ClInclude Include="docs\doc_main.h" />
     <ClInclude Include="HttpServer.h" />
     <ClInclude Include="pch.h" />

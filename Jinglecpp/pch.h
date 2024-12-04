@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <sstream>
+#include <fstream>
 #include <map>
 #include <WinSock2.h>
 #include <WS2tcpip.h>
