@@ -11,11 +11,8 @@ int main(void) {
 		HttpServer server(8080);
 
 		server.get("/health", [](const std::string& request, Response& response) {
-			nlohmann::json jsonResponse = "{\"status\":true, \"message\":\"Server is up and running\"}"_json;
-			response.status(200).json(jsonResponse);
+			response.sendFile("./sample.txt");
 		});
-
-		
 
 		server.startServer();
 	}
