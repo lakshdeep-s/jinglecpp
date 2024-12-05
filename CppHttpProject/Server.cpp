@@ -11,11 +11,11 @@ int main(void) {
 		HttpServer server(8080);
 
 		server.get("/health", [](const std::string& request, Response& response) {
-			nlohmann::json jsonResponse = "{\"status\":true, \"message\":\"Server is up and running\"}"_json;
-			response.status(200).json(jsonResponse);
+			Request req(request);
+			const std::string& username = req.getQueryParameter("username");
+			const std::string& message = req.getCookie("mycookie");
+			response.send("Hello " + username + " " + message);
 		});
-
-		
 
 		server.startServer();
 	}

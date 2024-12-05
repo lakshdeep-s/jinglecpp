@@ -1,0 +1,55 @@
+\doxysection{Response.\+h}
+\hypertarget{_response_8h_source}{}\label{_response_8h_source}\mbox{\hyperlink{_response_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}pch.h"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#include\ "{}nlohmann/json.hpp"{}}}
+\DoxyCodeLine{00009\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_response}{Response}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00021\ \ \ \ \ std::string\ version;}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ statusCode;}
+\DoxyCodeLine{00028\ }
+\DoxyCodeLine{00033\ \ \ \ \ std::string\ statusText;}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00039\ \ \ \ \ std::string\ body;}
+\DoxyCodeLine{00040\ }
+\DoxyCodeLine{00045\ \ \ \ \ std::map<std::string,\ std::string>\ headers;}
+\DoxyCodeLine{00046\ }
+\DoxyCodeLine{00051\ \ \ \ \ std::map<unsigned\ short,\ std::string>\ statusCodes\ =\ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \{200,\textcolor{stringliteral}{"{}OK"{}}\},}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \{201,\textcolor{stringliteral}{"{}Created"{}}\},}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \{400,\textcolor{stringliteral}{"{}Bad\ Request"{}}\},}
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \{403,\textcolor{stringliteral}{"{}Unauthorized"{}}\},}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{404,\textcolor{stringliteral}{"{}Not\ Found"{}}\},}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \{500,\textcolor{stringliteral}{"{}Internal\ Server\ Error"{}}\}}
+\DoxyCodeLine{00058\ \ \ \ \ \};}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00065\ \ \ \ \ \mbox{\hyperlink{class_response_afa73d70e3c2958e08acc050f0cbf1fbb}{Response}}(\textcolor{keyword}{const}\ std::string\&\ version\ =\ \textcolor{stringliteral}{"{}1.1"{}});}
+\DoxyCodeLine{00066\ }
+\DoxyCodeLine{00070\ \ \ \ \ \mbox{\hyperlink{class_response_a2a4a6403aaefce73725f17cf63896f84}{\string~Response}}()\ \{\};}
+\DoxyCodeLine{00071\ }
+\DoxyCodeLine{00077\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_ab0d1d924a23ee6daaf5e58819a543d2f}{status}}(\textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{short}\ statusCode);}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00085\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_a81d8c357d33ddf20d450bc06bea48cb5}{setHeader}}(\textcolor{keyword}{const}\ std::string\&\ key,\ \textcolor{keyword}{const}\ std::string\&\ value);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00092\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_a4a9e1820749cb557e426f16ab36bd7b9}{setHeaders}}(\textcolor{keyword}{const}\ std::map<std::string\&,\ std::string>\&\ customHeaders);}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00098\ \ \ \ \ std::map<std::string,\ std::string>\ \mbox{\hyperlink{class_response_add8074792569f1df669b12ef23adb3a8}{getHeaders}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00099\ }
+\DoxyCodeLine{00106\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_aed074dad881f7eee4d6bc7e11b7b0954}{send}}(\textcolor{keyword}{const}\ std::string\&\ data,\ \textcolor{keyword}{const}\ std::string\&\ contentType\ =\ \textcolor{stringliteral}{"{}text/plain"{}});}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00113\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_a63d0a644a2099e6292ee7112130079fb}{sendFile}}(\textcolor{keyword}{const}\ std::string\&\ filePath);}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00120\ \ \ \ \ \mbox{\hyperlink{class_response}{Response}}\&\ \mbox{\hyperlink{class_response_a3da69aa1fedb5a1e93574198e3f730a6}{json}}(nlohmann::json\&\ jsonObject);}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00126\ \ \ \ \ \textcolor{keyword}{const}\ std::string\ \mbox{\hyperlink{class_response_a1869fd3cc5291b730b550062a7295f66}{getResponse}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00127\ }
+\DoxyCodeLine{00132\ \ \ \ \ std::string\ \mbox{\hyperlink{class_response_a84936ed0ab7a96c289a60f429c61f82a}{getCurrentDate}}()\ \textcolor{keyword}{const};}
+\DoxyCodeLine{00133\ \};}
+
+\end{DoxyCode}
