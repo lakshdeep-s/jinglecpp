@@ -11,7 +11,10 @@ int main(void) {
 		HttpServer server(8080);
 
 		server.get("/health", [](const std::string& request, Response& response) {
-			response.sendFile("./sample.txt");
+			Request req(request);
+			const std::string& username = req.getQueryParameter("username");
+			const std::string& message = req.getCookie("mycookie");
+			response.send("Hello " + username + " " + message);
 		});
 
 		server.startServer();

@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "HttpServer.h"
+#include "request.h"
 
 namespace Server
 {
@@ -75,8 +76,8 @@ namespace Server
 		}
 	}
 
-	void HttpServer::processRequest(const std::string& request, Response& response) const {
-		std::string method, path;
+	void HttpServer::processRequest(const std::string& req, Response& response) const {
+		/*std::string method, path;
 		std::istringstream requestStream(request);
 		requestStream >> method >> path;
 
@@ -86,10 +87,20 @@ namespace Server
 		else {
 			Response response = Response();
 			response.status(404);
+		}*/
+		Request request(req);
+		const std::string path = request.getUrl();
+		const std::string method = request.getMethod();
+
+		if (request.getMethod() == "GET" && getRoutes.find(request.getUrl()) != getRoutes.end()) {
+			getRoutes.at(path)(req, response);
+		}
+		else {
+			response.status(404);
 		}
 	}
 
-	void HttpServer::get(const std::string& route, const std::function<void(const std::string&, Response&)> handler) {
+	void HttpServer::get(const std::string& route, const std::function<void(const std::string& reqString, Response& response)> handler) {
 		getRoutes[route] = handler;
 	}
 }
