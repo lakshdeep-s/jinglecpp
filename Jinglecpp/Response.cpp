@@ -21,13 +21,6 @@ Response& Response::setHeader(const std::string& key, const std::string& value) 
 	return *this;
 }
 
-Response& Response::setHeaders(const std::map<std::string, std::string>& customHeaders) {
-	for (const auto& header : customHeaders) {
-		headers[header.first] = header.second;
-	}
-	return *this;
-}
-
 std::map<std::string, std::string> Response::getHeaders() const {
 	return headers;
 }
