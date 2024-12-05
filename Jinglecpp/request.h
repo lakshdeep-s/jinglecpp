@@ -35,13 +35,13 @@ private:
 	* @var headers
 	* @breif the headers of the request
 	*/
-	std::unordered_map<const std::string&, const std::string&>headers;
+	std::unordered_map<std::string, std::string>headers;
 	
 	/**
 	* @var queryParameters
 	* @breif the query parameters of the request
 	*/
-	std::unordered_map<const std::string&, const std::string&>queryParameters;
+	std::unordered_map<std::string, std::string>queryParameters;
 		
 	/**
 	* @var body
@@ -53,10 +53,7 @@ private:
 	* @var cookies
 	* @breif the cookies of the request
 	*/
-	std::unordered_map<const std::string&, const std::string&>cookies;
-
-
-
+	std::unordered_map<std::string, std::string>cookies;
 
 public:
 	/**
@@ -89,5 +86,9 @@ public:
 	* @param reqString The request string
 	*/
 	void parseRequest(const std::string& reqString);
+
+	void parseQueryParams(const std::string& queryString);
+
+	void parseCookies(const std::string& cookieString);
 };
 
