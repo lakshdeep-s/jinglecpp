@@ -85,13 +85,6 @@ public:
     Response& setHeader(const std::string& key, const std::string& value);
 
     /**
-     * @brief Sets multiple custom headers
-     * @param customHeaders Map of custom headers
-     * @return Reference to the Response object
-     */
-    Response& setHeaders(const std::map<std::string&, std::string>& customHeaders);
-
-    /**
      * @brief Gets all headers
      * @return Map of headers
      */
